@@ -1,0 +1,21 @@
+[project]
+name = "fifa21-etl-pipeline"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "xavierkooijman" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "polars>=1.44.1",
+    "psycopg[binary]>=3.3.5",
+    "python-dotenv>=1.2.3",
+]
+
+[project.scripts]
+fifa21-etl-pipeline = "fifa21_etl_pipeline:main"
+
+[build-system]
+requires = ["uv_build>=0.12.10,<0.13.0"]
+build-backend = "uv_build"
