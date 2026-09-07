@@ -1,0 +1,16 @@
+import polars as pl
+
+df = pl.read_csv("data/fifa21_raw_data.csv")
+
+print(df.head())
+print(df.schema)
+
+df = df.with_columns(
+    (pl.col("Weight").str.replace("lbs", "").cast(
+        pl.Float64) / 2.2).round(0).cast(pl.Int32)
+)
+
+df = df.with_columns(
+    ((pl.col("Height").str.extract(r"(\d+)", 1).cast(pl.Int32) * 12 +
+     pl.col("Height").str.extract(r"'(\d+)", 1).cast(pl.Int32)) * 2.54).round(0).cast(pl.Int32)
+)
