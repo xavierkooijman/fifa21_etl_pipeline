@@ -1,7 +1,7 @@
 [project]
 name = "fifa21-etl-pipeline"
 version = "0.1.0"
-description = "Add your description here"
+description = "FIFA 21 data ETL pipeline"
 readme = "README.md"
 authors = [
     { name = "xavierkooijman" }
@@ -13,9 +13,10 @@ dependencies = [
     "python-dotenv>=1.2.3",
 ]
 
-[project.scripts]
-fifa21-etl-pipeline = "fifa21_etl_pipeline:main"
+[tool.uv]
+package = false
 
-[build-system]
-requires = ["uv_build>=0.12.10,<0.13.0"]
-build-backend = "uv_build"
+[dependency-groups]
+dev = [
+    "jupyter>=1.1.1",
+]
